@@ -16,37 +16,37 @@ import OrbitControls from 'three-orbitcontrols';
 /**
      * 创建场景对象
      */
-var scene = new Scene();
+let scene = new Scene();
 /**
  * 创建网格模型
  */
-var box = new BoxGeometry(100, 100, 100);//创建一个立方体几何对象
-var material = new MeshLambertMaterial({ color: 0x00ff00 });//材质对象
-var mesh = new Mesh(box, material);//网格模型对象
+let box = new BoxGeometry(100, 100, 100);//创建一个立方体几何对象
+let material = new MeshLambertMaterial({ color: 0x00ff00 });//材质对象
+let mesh = new Mesh(box, material);//网格模型对象
 scene.add(mesh);
 
 //点光源
-var point = new PointLight(0xffffff);
+let point = new PointLight(0xffffff);
 point.position.set(400, 200, 300);//点光源位置
 scene.add(point);//点光源添加到场景中
 //环境光
-var ambient = new AmbientLight(0x444444);
+let ambient = new AmbientLight(0x444444);
 scene.add(ambient);
 /**
  * 相机设置
  */
-var width = window.innerWidth;//窗口宽度
-var height = window.innerHeight;//窗口高度
-var k = width / height;//窗口宽高比
-var s = 100;//三维场景缩放系数
+let width = window.innerWidth;//窗口宽度
+let height = window.innerHeight;//窗口高度
+let k = width / height;//窗口宽高比
+let s = 100;//三维场景缩放系数
 //创建相机对象
-var camera = new OrthographicCamera(-s * k, s * k, s, -s, 1, 1000);
+let camera = new OrthographicCamera(-s * k, s * k, s, -s, 1, 1000);
 camera.position.set(250, 300, 200);//设置相机位置
 camera.lookAt(scene.position);//设置相机方向(指向的场景对象)
 /**
  * 创建渲染器对象
  */
-var renderer = new WebGLRenderer();
+let renderer = new WebGLRenderer();
 renderer.setSize(width, height);
 renderer.setClearColor(0xb9d3ff, 1);//设置背景颜色
 // document.body.appendChild(renderer.domElement);//body元素中插入canvas对象
@@ -70,7 +70,7 @@ function render() {
     requestAnimationFrame(render);//请求再次执行渲染函数render
 }
 render();
-var controls = new OrbitControls(camera);//创建控件对象
+let controls = new OrbitControls(camera);//创建控件对象
 // controls.addEventListener('change', render);//监听鼠标、键盘事件
 
 // const greeter = require('./Greeter.js');
